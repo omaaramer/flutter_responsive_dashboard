@@ -15,37 +15,32 @@ class DrawerListView extends StatefulWidget {
 
 class _DrawerListViewState extends State<DrawerListView> {
   final List<ListileModel> drawerLest = const [
-    ListileModel(
-      title: "Dashboard",
-      image: Assets.imagesDashboard,
-    ),
+    ListileModel(title: "Dashboard", image: Assets.imagesDashboard),
     ListileModel(title: "My Transaction", image: Assets.imagesMyTransctions),
     ListileModel(title: "Statistics", image: Assets.imagesStatistics),
     ListileModel(title: "Wallet Account", image: Assets.imagesWalletAccount),
     ListileModel(title: "My Investments", image: Assets.imagesMyInvestments),
   ];
-  final int selectedIndex = 0;
+  int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
     return SliverList.builder(
-        itemBuilder: (context, index) {
-          return GestureDetector(
-            onTap: () {
-              if (selectedIndex != index) {
-                setState(() {
-                  selectedIndex == index;
-                });
-              }
-            },
-            child: Padding(
-              padding: const EdgeInsets.only(top: 20),
-              child: CustomDrawerListile(
-                listileModel: drawerLest[index],
-                isActive: selectedIndex == index,
-              ),
-            ),
-          );
-        },
-        itemCount: drawerLest.length);
+      itemCount: drawerLest.length,
+      itemBuilder: (context, index) {
+        return GestureDetector(
+          onTap: () {
+            setState(
+              () {
+                selectedIndex = index;
+              },
+            );
+          },
+          child: CustomDrawerListile(
+            listileModel: drawerLest[index],
+            isActive: selectedIndex == index,
+          ),
+        );
+      },
+    );
   }
 }
