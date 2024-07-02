@@ -17,13 +17,21 @@ class ProfileInfoListTile extends StatelessWidget {
       child: Center(
         child: ListTile(
           leading: SvgPicture.asset(model.image),
-          title: Text(
-            model.title,
-            style: AppStyles.styleSemiBold16(context),
+          title: FittedBox(
+            alignment: AlignmentDirectional.centerStart,
+            fit: BoxFit.scaleDown,
+            child: Text(
+              model.title,
+              style: AppStyles.styleSemiBold16(context),
+            ),
           ),
-          subtitle: Text(
-            model.subtitle,
-            style: AppStyles.styleRegular12(context),
+          subtitle: FittedBox(
+            alignment: AlignmentDirectional.centerStart,
+            fit: BoxFit.scaleDown,
+            child: Text(
+              model.subtitle,
+              style: AppStyles.styleRegular12(context),
+            ),
           ),
         ),
       ),

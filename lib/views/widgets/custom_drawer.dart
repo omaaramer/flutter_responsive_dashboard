@@ -11,49 +11,49 @@ class CustomDawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.white,
-      child: const CustomScrollView(
-        slivers: [
-          SliverToBoxAdapter(
-            child: SizedBox(height: 36),
-          ),
-          SliverToBoxAdapter(
-            child: ProfileInfoListTile(
-              model: UserInfoModel(
-                image: Assets.imagesAvatar3,
-                title: "Lekan Okeowo",
-                subtitle: "demo@gmail.com",
+    return Drawer(
+      child: Container(
+        // width: MediaQuery.sizeOf(context).width * 0.7,
+        color: Colors.white,
+        child: const CustomScrollView(
+          slivers: [
+            SliverToBoxAdapter(
+              child: SizedBox(height: 36),
+            ),
+            SliverToBoxAdapter(
+              child: ProfileInfoListTile(
+                model: UserInfoModel(
+                  image: Assets.imagesAvatar3,
+                  title: "Lekan Okeowo",
+                  subtitle: "demo@gmail.com",
+                ),
               ),
             ),
-          ),
-          SliverToBoxAdapter(
-            child: SizedBox(height: 8),
-          ),
-          const DrawerListView(),
-          const SliverFillRemaining(
-            hasScrollBody: false,
-            child: Column(
-              children: [
-                Expanded(
-                    child: SizedBox(
-                  height: 20,
-                )),
-                InActiveDrawerItem(
-                  listileModel: ListileModel(
-                    title: "Setting system",
-                    image: Assets.imagesSettings,
-                  ),
-                ),
-                InActiveDrawerItem(
-                  listileModel: ListileModel(
-                      title: "Logout account", image: Assets.imagesLogout),
-                ),
-                SizedBox(height: 48),
-              ],
+            SliverToBoxAdapter(
+              child: SizedBox(height: 8),
             ),
-          )
-        ],
+            DrawerListView(),
+            SliverFillRemaining(
+              hasScrollBody: false,
+              child: Column(
+                children: [
+                  Expanded(child: SizedBox(height: 20)),
+                  InActiveDrawerItem(
+                    listileModel: ListileModel(
+                      title: "Setting system",
+                      image: Assets.imagesSettings,
+                    ),
+                  ),
+                  InActiveDrawerItem(
+                    listileModel: ListileModel(
+                        title: "Logout account", image: Assets.imagesLogout),
+                  ),
+                  SizedBox(height: 48),
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

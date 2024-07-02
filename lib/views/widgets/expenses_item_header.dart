@@ -10,19 +10,24 @@ class EpensesItemHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Container(
-          width: 60,
-          height: 60,
-          decoration: ShapeDecoration(
-            color: imageBackground ?? const Color(0xfffafafa),
-            shape: const OvalBorder(),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.all(14),
-            child: SvgPicture.asset(
-              image,
-              colorFilter: ColorFilter.mode(
-                  imagecolor ?? const Color(0xff4eb7f2), BlendMode.srcIn),
+        Flexible(
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxHeight: 60),
+            child: AspectRatio(
+              aspectRatio: 1,
+              child: Container(
+                decoration: ShapeDecoration(
+                  color: imageBackground ?? const Color(0xfffafafa),
+                  shape: const OvalBorder(),
+                ),
+                child: Center(
+                  child: SvgPicture.asset(
+                    image,
+                    colorFilter: ColorFilter.mode(
+                        imagecolor ?? const Color(0xff4eb7f2), BlendMode.srcIn),
+                  ),
+                ),
+              ),
             ),
           ),
         ),

@@ -15,18 +15,37 @@ class DesctopLayout extends StatelessWidget {
       children: [
         Expanded(child: CustomDawer()),
         SizedBox(width: 32),
-        Expanded(flex: 2, child: AllXEnesesAndQuickInvoiceSection()),
-        SizedBox(width: 24),
         Expanded(
-          child: Column(
-            children: [
-              SizedBox(width: 40),
-              MyCardAndTransSection(),
-              SizedBox(height: 24),
-              Expanded(child: InComeSection()),
+          flex: 3,
+          child: CustomScrollView(
+            slivers: [
+              SliverFillRemaining(
+                hasScrollBody: false,
+                child: Row(
+                  children: [
+                    Expanded(
+                        flex: 2,
+                        child: Padding(
+                          padding: EdgeInsets.only(top: 40),
+                          child: AllXEnesesAndQuickInvoiceSection(),
+                        )),
+                    SizedBox(width: 24),
+                    Expanded(
+                      child: Column(
+                        children: [
+                          SizedBox(height: 40),
+                          MyCardAndTransSection(),
+                          SizedBox(height: 24),
+                          Expanded(child: InComeSection()),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
-        ),
+        )
       ],
     );
   }

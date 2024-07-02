@@ -17,9 +17,13 @@ class InActiveDrawerItem extends StatelessWidget {
       padding: const EdgeInsets.only(top: 20),
       child: ListTile(
         leading: SvgPicture.asset(listileModel.image),
-        title: Text(
-          listileModel.title,
-          style: AppStyles.styleRegular16(context),
+        title: FittedBox(
+          alignment: AlignmentDirectional.centerStart,
+          fit: BoxFit.scaleDown,
+          child: Text(
+            listileModel.title,
+            style: AppStyles.styleRegular16(context),
+          ),
         ),
       ),
     );
@@ -40,9 +44,13 @@ class ActiveDrawerItem extends StatelessWidget {
       padding: const EdgeInsets.only(top: 20),
       child: ListTile(
         leading: SvgPicture.asset(listileModel.image),
-        title: Text(
-          listileModel.title,
-          style: AppStyles.styleBold16(context),
+        title: FittedBox(
+          alignment: AlignmentDirectional.centerStart,
+          fit: BoxFit.scaleDown,
+          child: Text(
+            listileModel.title,
+            style: AppStyles.styleBold16(context),
+          ),
         ),
         trailing: Container(
           width: 3.27,
